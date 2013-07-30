@@ -1,0 +1,15 @@
+<h1>Feeds</h1>
+
+<ul>
+  <% feeds.each(function (feed) { %>
+    <li class="feed">
+      <a href="#/feeds/<%= feed.id %>">
+        <%= feed.escape("title") %>
+      </a>
+    </li>
+  <% }); %>
+</ul>
+
+<h3>Add feed</h3>
+<input type="text" name="feed[url]">
+<button class="submit">Add</submit>

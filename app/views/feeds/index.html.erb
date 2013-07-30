@@ -1,0 +1,13 @@
+<div id="sidebar" style="float: left; width: 30%"></div>
+<div id="content" style="float: right; width: 70%"></div>
+
+<script type="application/json" id="bootstrapped_feed_data">
+  <%= Feed.all.to_json.html_safe %>
+</script>
+
+<script type="application/javascript">
+  $(function(){
+    var feeds = JSON.parse($("#bootstrapped_feed_data").html());
+    window.NewsReader.initialize($("#sidebar"), $("#content"), feeds);
+  });
+</script>
