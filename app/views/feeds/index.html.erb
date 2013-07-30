@@ -1,5 +1,9 @@
-<div id="sidebar" style="float: left; width: 30%"></div>
-<div id="content" style="float: right; width: 70%"></div>
+<link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+
+<div id="content-container" style="float: right; width: 75%"><div id="content" ></div></div>
+<div id="sidebar-container" style="float: left; width: 25%"><div id="sidebar" ></div></div>
+
 
 <script type="application/json" id="bootstrapped_feed_data">
   <%= Feed.all.to_json.html_safe %>

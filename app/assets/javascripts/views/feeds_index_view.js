@@ -9,7 +9,7 @@ NewsReader.Views.FeedsIndexView = Backbone.View.extend({
   },
 
   events: {
-    "click button.submit": "add"
+    "keypress input": "add"
   },
 
   render: function () {
@@ -23,22 +23,26 @@ NewsReader.Views.FeedsIndexView = Backbone.View.extend({
     return that;
   },
 
-  add: function () {
-    var that = this;
-    var feedUrl = $("input[type=text]").val()
+  add: function (e) {
+    if (e.keyCode === 13) {
+      var that = this;
+      var feedUrl = $("input[type=text]").val()
 
-    $.ajax({
-      url: "/feeds",
-      data: {feed: {url: feedUrl}},
-      method: "POST",
-      success: function () {
-        that.collection.fetch();
-        that.render();
-      },
-      error: function () {
-        that.collection.fetch();
-        console.log("fuck");
-      }
-    });
+      $.ajax({
+        url: "/feeds",
+        data: {feed: {url: feedUrl}},
+        method: "POST",
+        success: function () {
+          that.collection.fetch();
+          that.render();
+        },
+        error: function () {
+          that.collection.fetch();
+          console.log("fuck");
+        }
+      });
+    } else {
+      console.log("you didn't press enter");
+    }
   }
 })
