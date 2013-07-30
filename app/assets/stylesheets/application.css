@@ -44,6 +44,10 @@ li {
   margin: 3px 0 0 0;
 }
 
+/*li:hover {
+  -webkit-transition: 0.5s;
+}*/
+
 h1, h2 {
   text-align: center;
   font-family: 'Nixie One', cursive;
@@ -63,4 +67,35 @@ button.refresh {
 
 .submit {
   display: none;
+}
+
+.textbox {
+  border-top-style:none;
+  border-right-style:none;
+  border-bottom-style:solid;
+  border-left-style:none;
+  color: gray;
+  outline: none;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden-description {
+  display: none;
+  position: relative;
+  left: 50px;
+  width: 85%;
+}
+
+.expander {
+  margin: 0;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 5px 0 5px;
+  border: 1px solid black;
+  border-radius: 5px;
 }

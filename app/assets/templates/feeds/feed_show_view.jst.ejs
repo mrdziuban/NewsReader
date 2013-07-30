@@ -3,9 +3,17 @@
 <ul>
   <% feed.get('entries').each( function(entry) { %>
     <li class='entry'>
-      <a href='<%= entry.escape('link') %>'><%= entry.escape('title') %></a>
+      <span class="expander">+</span>
+      <a href='<%= entry.escape('link') %>'><%= entry.escape('title') %></a><br>
+      <div class="hidden-description"><%= _.unescape(entry.escape('description')) %></div>
     </li>
   <% }); %>
 </ul>
 
 <button class="refresh">Refresh</button>
+
+<script>
+  $(".expander").on("click", function() {
+    $(this).siblings(".hidden-description").slideToggle()
+  });
+</script>
