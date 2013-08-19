@@ -1,5 +1,7 @@
 <h1><%= feed.escape("title") %></h1>
 
+<button class="refresh">Refresh</button>
+
 <ul>
   <% feed.get('entries').each( function(entry) { %>
     <li class='entry'>
@@ -9,8 +11,6 @@
     </li>
   <% }); %>
 </ul>
-
-<button class="refresh">Refresh</button>
 
 <script>
   $(".expander").on("click", function() {

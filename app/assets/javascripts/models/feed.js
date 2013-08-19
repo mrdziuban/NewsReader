@@ -10,10 +10,9 @@ NewsReader.Models.Feed = Backbone.Model.extend({
     var entriesColl = new NewsReader.Collections.Entries(that.id);
 
     if (response.entries) {
-      // Reverse entries here
-      response.entries.forEach(function(el, i, ar) {
-        entriesColl.add(el)
-      })
+      for (var i = response.entries.length - 1; i >= 0; i--) {
+        entriesColl.add(response.entries[i]);
+      }
     }
 
     response.entries = entriesColl;
