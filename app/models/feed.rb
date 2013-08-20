@@ -9,6 +9,7 @@ class Feed < ActiveRecord::Base
 
     begin
       feed_data = SimpleRSS.parse(open(url))
+      feed_data.title = HTMLEntities.new.decode(HTMLEntities.new.decode(feed_data.title))
       feed = Feed.create!(title: feed_data.title, url: url)
       feed_data.entries.each do |entry_data|
         Entry.create_from_json!(entry_data, feed)
