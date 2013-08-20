@@ -27,6 +27,7 @@ NewsReader.Views.FeedsIndexView = Backbone.View.extend({
     if (e.keyCode === 13) {
       var that = this;
       var feedUrl = $("input[type=text]").val()
+      $("input[type=text]").val("Adding...");
 
       $.ajax({
         url: "/feeds",
@@ -35,14 +36,13 @@ NewsReader.Views.FeedsIndexView = Backbone.View.extend({
         success: function () {
           that.collection.fetch();
           that.render();
+          $("input[type=text]").val("");
         },
         error: function () {
           that.collection.fetch();
-          console.log("fuck");
+          $("input[type=text]").val("Error. Please try again.");
         }
       });
-    } else {
-      console.log("you didn't press enter");
     }
   }
 })
